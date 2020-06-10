@@ -30,7 +30,7 @@ A list of practical projects that anyone can solve in any programming language (
 
 **Next Prime Number** - Have the program find prime numbers until the user chooses to stop asking for the next one.
 
-<del>**Find Cost of Tile to Cover W x H Floor** - Calculate the total cost of tile it would take to cover a floor plan of width and height, using a cost entered by the user.</del>
+~~**Find Cost of Tile to Cover W x H Floor** - Calculate the total cost of tile it would take to cover a floor plan of width and height, using a cost entered by the user.</~~
 
 **Mortgage Calculator** - Calculate the monthly payments of a fixed term mortgage over given Nth terms at a given interest rate. Also figure out how long it will take the user to pay back the loan. For added complexity, add an option for users to select the compounding interval (Monthly, Weekly, Daily, Continually).
 
@@ -46,7 +46,7 @@ A list of practical projects that anyone can solve in any programming language (
 
 **Distance Between Two Cities** - Calculates the distance between two cities and allows the user to specify a unit of distance. This program may require finding coordinates for the cities like latitude and longitude.
 
-<del>**Credit Card Validator** - Takes in a credit card number from a common credit card vendor (Visa, MasterCard, American Express, Discoverer) and validates it to make sure that it is a valid number (look into how credit cards use a checksum).</del>
+~~**Credit Card Validator** - Takes in a credit card number from a common credit card vendor (Visa, MasterCard, American Express, Discoverer) and validates it to make sure that it is a valid number (look into how credit cards use a checksum).</~~
 
 **Tax Calculator** - Asks the user to enter a cost and either a country or state tax. It then returns the tax plus the total cost with tax.
 
@@ -66,7 +66,7 @@ A list of practical projects that anyone can solve in any programming language (
 
 ## Classic Algorithms
 
-**Collatz Conjecture** - Start with a number _n > 1_. Find the number of steps it takes to reach one using the following process: If _n_ is even, divide it by 2. If _n_ is odd, multiply it by 3 and add 1.
+~~**Collatz Conjecture** - Start with a number _n > 1_. Find the number of steps it takes to reach one using the following process: If _n_ is even, divide it by 2. If _n_ is odd, multiply it by 3 and add 1.~~
 
 **Sorting** - Implement two types of sorting algorithms: Merge sort and bubble sort.
 
