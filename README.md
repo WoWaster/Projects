@@ -62,7 +62,7 @@ A list of practical projects that anyone can solve in any programming language (
 
 **Limit Calculator** - Ask the user to enter f(x) and the limit value, then return the value of the limit statement _Optional: Make the calculator capable of supporting infinite limits._
 
-**Fast Exponentiation** - Ask the user to enter 2 integers a and b and output a^b (i.e. pow(a,b)) in O(lg n) time complexity.
+~~**Fast Exponentiation** - Ask the user to enter 2 integers a and b and output a^b (i.e. pow(a,b)) in O(lg n) time complexity.~~
 
 ## Classic Algorithms
 
