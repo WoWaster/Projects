@@ -1,5 +1,8 @@
-def fibonacci(n):
-    fib = [0, 1]
+from typing import List
+
+
+def fibonacci(n: int) -> List[int]:
+    fib: List[int] = [0, 1]
     for i in range(n - 2):
         fib.append(fib[i] + fib[i + 1])
     return fib

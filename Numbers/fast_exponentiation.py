@@ -4,7 +4,7 @@ def power(n: float, k: int) -> float:
     if k < 0:
         n = 1 / n
         k = -k
-    result = 1
+    result = 1.0
     while k != 1:
         if k % 2 == 0:
             n = n * n
