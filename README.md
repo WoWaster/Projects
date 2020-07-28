@@ -127,7 +127,7 @@ subgraph that is a tree, contains all the vertices, and the sum of its weights i
 
 **Mail Checker (POP3 / IMAP)** - The user enters various account information include web server and IP, protocol type (POP3 or IMAP) and the application will check for email at a given interval.
 
-**Country from IP Lookup** - Enter an IP address and find the country that IP is registered in. _Optional: Find the Ip automatically._
+~~**Country from IP Lookup** - Enter an IP address and find the country that IP is registered in. _Optional: Find the Ip automatically._~~
 
 **Whois Search Tool** - Enter an IP or host address and have it look it up through whois and return the results to you.
 

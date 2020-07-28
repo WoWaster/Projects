@@ -1,10 +1,22 @@
-# import csv
+import argparse
 import re
-import sys
 from typing import Dict, List
 
 import requests
 from requests.models import Response
+
+
+class IncorrectIP(Exception):
+    """Raised when given IP is incorrect."""
+
+    def __init__(self, ip: str) -> None:
+        self.ip = ip
+
+    def __str__(self) -> str:
+        return (
+            f"IP {self.ip} is invalid. Use 'xxx.xxx.xxx.xxx' format "
+            "without leading zeroes."
+        )
 
 
 def user_ip() -> str:
@@ -28,8 +40,9 @@ def check_country(ip: str) -> Dict[str, str]:
     """
 
     # Check if IP is in correct form.
-    if not re.match(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", ip):
-        return {"country": "Incorrect ip, use 'xxx.xxx.xxx.xxx' format.", "city": ""}
+    ip_regex = re.compile(r"\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b")
+    if not ip_regex.match(ip):
+        raise IncorrectIP(ip)
 
     r = requests.get(f"https://www.iplocate.io/api/lookup/{ip}")  # type: ignore
     keys: List[str] = ["country", "city"]
@@ -38,35 +51,24 @@ def check_country(ip: str) -> Dict[str, str]:
 
 
 if __name__ == "__main__":
-    info: str = """Country from IP Lookup
+    parser = argparse.ArgumentParser(
+        description="A program to find to what country given IP belongs.",
+    )
 
-USAGE
-  country_from_IP_lookup [-c] <ip address>
+    parser.add_argument(
+        "-c", "--city", action="store_true", help="Print city where IP originates."
+    )
+    parser.add_argument(
+        "ip_address",
+        type=str,
+        help="IP to investigate. Type 'whereami' to show where you are based on IP.",
+    )
+    args = parser.parse_args()
 
-ARGUMENTS
-  <ip address>      IP address to lookup in format 'xxx.xxx.xxx.xxx'
-
-GLOBAL OPTIONS
-  -c                Print city in addition
-
-AVAILABLE COMMANDS
-  whereami          Checks country based on yours(users) ip"""
-    if len(sys.argv) == 1:
-        print(info)
-    elif len(sys.argv) == 2:
-        if sys.argv[1] == "whereami":
-            print("Country:", check_country(user_ip()).get("country"))
-        else:
-            print("Country:", check_country(sys.argv[1]).get("country"))
-    elif len(sys.argv) == 3 and sys.argv[1] == "-c":
-        if sys.argv[2] == "whereami":
-            print("Country:", check_country(user_ip()).get("country"))
-            print("City:", check_country(user_ip()).get("city"))
-        elif sys.argv[2]:
-            print("Country:", check_country(sys.argv[2]).get("country"))
-            print("City:", check_country(sys.argv[2]).get("city"))
-    else:
-        print("Incorrect arguments.")
-
-# TODO: Redo getting city and country
-# TODO: Check IP to be correct: check stackoverflow
+    if args.ip_address:
+        if args.ip_address == "whereami":
+            args.ip_address = user_ip()
+        answer = check_country(args.ip_address)
+        print(f"Country: {answer['country']}")
+        if args.city:
+            print(f"City: {answer['city']}")

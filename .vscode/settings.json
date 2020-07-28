@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "D:\\Programming\\Projects\\.venv\\Scripts\\python.exe",
+    "python.pythonPath": ".venv\\Scripts\\python.exe",
     "cSpell.words": [
         "Ceasar",
         "Collatz",
